@@ -5,27 +5,27 @@
   <meta charset="utf-8">
   <title>Titre de la page</title>
   <link rel="stylesheet" href="stylesheets/index.css">
-  <script src="script.js"></script>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
 </head>
 
 <body>
   <header>
-    <img src="images/logo.jpg" alt="header" height="42" width="100%">
   </header>
 
-    <main>
-
-      <div class="cnx">
-        <form>
+    <main id="app">
+      <login inline-template>
+        <div>
           <label for="login">Login </label><br>
-          <input type="text" name="login" id="login"><br>
+          <input type="text" name="login" id="login"  v-model="login"><br>
 
-          <label for="login">Login </label><br>
-          <input type="password" name="psw" id="psw"><br>
+          <label for="login">Password </label><br>
+          <input type="password" name="password" id="password"  v-model="password"><br>
 
-          <input type="submit" value="Submit">
-	  </form>
-      </div>
+          <input type="button" value="Submit" v-on:click="_login()">
+        </div>
+      </login>
 
       <p class="change_link">
         Pas encore un membre ?
@@ -35,5 +35,7 @@
     </main>
 
 </body>
-
+<script src="javascripts/login.js"></script>
+<script src="javascripts/search.js"></script>
+<script src="../app.js"></script>
 </html>

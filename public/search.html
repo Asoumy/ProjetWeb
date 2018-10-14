@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Titre de la page</title>
+  <link rel="stylesheet" href="stylesheets/index.css">
+  <script src="javascripts/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+  <header>
+  </header>
+  <main id="app">
+    <search  inline-template>
+      <div>
+        <h1>Secure Area</h1>
+        <p>
+            This is a secure area - {{ test }}
+        </p>
+        <div id="nav">
+            <button v-on:click="logout()">Logout</button>
+        </div>
+      </div>
+    </search>
+
+	</main>
+
+
+</body>
+
+<script src="javascripts/login.js"></script>
+<script src="javascripts/search.js"></script>
+<script src="../app.js"></script>
+
+</html>

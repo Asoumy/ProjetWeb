@@ -5,13 +5,12 @@
   <title>Titre de la page</title>
   <link rel="stylesheet" href="stylesheets/index.css">
   <script src="javascripts/vue.js"></script>
-  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 </head>
 <body>
   <header>
   </header>
   <main>
-
+    <template>
   	<div name="reg" id="reg">
   			<h1> Sign up - {{message}} </h1>
   			<p>
@@ -38,7 +37,7 @@
   				<a href="index.html" class="to_register"> Connectez vous </a>
   			</p>
   	</div>
-
+  </template>
 	</main>
 
 </body>

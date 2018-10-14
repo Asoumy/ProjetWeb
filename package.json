@@ -1,0 +1,7 @@
+"consumedServices": {
+  "autosave": {
+    "versions": {
+      "1.0.0": "consumeAutosave"
+    }
+  }
+}
