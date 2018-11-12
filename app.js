@@ -1,6 +1,6 @@
 Vue.use(VueRouter)
 
-const defaultPath = "C:/Users/slagh/Documents/GitHub/ProjetWeb/public"
+const defaultPath = "C:/Users/soums/ProjetWeb/public"
 const routes = [
   { path: defaultPath + '/index.html', name: 'Login', component: Login},
   { path: defaultPath + '/search.html', name: 'Search', component: Search}

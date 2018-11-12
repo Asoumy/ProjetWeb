@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Titre de la page</title>
+  <style>
+    nav ul li {
+      display: inline-block;
+      border: 1px solid red;
+      width: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <main id="app">
+    <nav>
+      <ul>
+        <li v-on:click="currentPage = 'accueil'">Accueil</li>
+        <li v-on:click="currentPage = 'quisommesnous'">Qui sommes-nous ?</li>
+      </ul>
+    </nav>
+    <section v-if="currentPage === 'accueil'" id="accueil">
+      <h1>Ceci est la page d'accueil</h1>
+      <p>Ceci est un petit texte pour accueillir nos visiteurs</p>
+    </section>
+
+    <section v-else-if="currentPage === 'quisommesnous'" id="quisommesnous">
+      <h1>Ceci est la page qui sommes-nous ?</h1>
+      <p>Ceci est le texte qui décrit qui je suis</p>
+    </section>
+    <section v-else>
+      Perdu ? VOus êtes ici.
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        currentPage: ''
+      }
+    })
+  </script>
+</body>
+
+</html>
