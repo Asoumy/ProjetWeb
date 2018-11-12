@@ -14,29 +14,32 @@
   <header>
   </header>
 
-    <main id="app">
-      <login inline-template>
-        <div>
-          <label for="login">Login </label><br>
-          <input type="text" name="login" id="login"  v-model="login"><br>
+  <main id="app">
+    <login inline-template>
+      <div>
+        <label for="login">Login </label><br>
+        <input type="text" name="login" id="login"  v-model="login"><br>
 
-          <label for="login">Password </label><br>
-          <input type="password" name="password" id="password"  v-model="password"><br>
+        <label for="login">Password </label><br>
+        <input type="password" name="password" id="password"  v-model="password"><br>
 
-          <input type="button" value="Submit" v-on:click="_login()">
+        <input type="button" value="Submit" v-on:click="_login()">
         </div>
-      </login>
+    </login>
 
-      <p class="change_link">
-        Pas encore un membre ?
-        <a href="registration.html" class="to_register"> Inscrivez vous </a>
-      </p>
+    <p class="change_link">
+      Pas encore un membre ?
+      <a href="registration.html" class="to_register"> Inscrivez vous </a>
+    </p>
+    <p class="change_link">
+      <a href="PasswordForgotten.html" class="ResetPassword"> Mot de Passe Oublié ? </a>
+    </p>
 
     </main>
     <!--
     <ul>
       <li v-for="item in myList"> {{item.name }} </li>
-      <input type='text' 
+      <input type='text'
     </ul>
   -->
 </body>
@@ -44,4 +47,5 @@
 <script src="javascripts/login.js"></script>
 <script src="javascripts/search.js"></script>
 <script src="../app.js"></script>
+
 </html>

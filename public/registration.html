@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
   <meta charset="utf-8">
   <title>Titre de la page</title>
@@ -7,41 +8,46 @@
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 </head>
+
 <body>
   <header>
   </header>
   <main id="app">
 
-  	<register inline-template>
-      <div>
-  			<h1> Sign up</h1>
-  			<p>
-  				<label for="loginsu" class="uname">Nouveau login </label>
-  				<input id="loginsu" name="loginsu" v-model="loginsu" type="text" value=""/>
+    <div name="reg" id="reg">
+      <img src="images/img_3.jpg" alt="img_3" />
+      <h1> Sign up - {{message}} </h1>
+      <p>
+        <label for="loginsu" class="uname">Nouveau login </label>
+        <input id="loginsu" name="loginsu" v-model="loginsu" type="text" value=""/>
   			</p>
-  			<p>
-  				<label for="emailsu" class="youmail" > Votre mail</label>
-  				<input id="emailsu" name="emailsu" v-model="emailsu"  type="email" />
+        <p>
+          <label for="emailsu" class="youmail" > Votre mail</label>
+          <input id="emailsu" name="emailsu" v-model="emailsu"  type="email" />
   			</p>
-  			<p>
-  				<label for="passwordsu" class="youpasswd"> Votre mot de passe </label>
-  				<input id="passwordsu" name="passwordsu" v-model="passwordsu" type="password" />
+          <p>
+            <label for="passwordsu" class="youpasswd"> Votre mot de passe </label>
+            <input id="passwordsu" name="passwordsu" v-model="passwordsu" type="password" />
   			</p>
-  			<p>
-  				<label for="passwordconf" class="youpasswd" >Confirmer votre mot de passe </label>
-  				<input id="passwordconf" name="passwordconf" v-model="passwordconf"  type="password" />
+            <p>
+              <label for="passwordconf" class="youpasswd" >Confirmer votre mot de passe </label>
+              <input id="passwordconf" name="passwordconf" v-model="passwordconf"  type="password" />
   			</p>
-  			<p class="signup button">
-          <input type="button" v-on:click="register" value="sign up"/>
+              <p class="signup button">
+                <input type="button" v-on:click="register" value="sign up"/>
   			</p>
-  			<p class="change_link">
-  				Deja un membre ?
-  				<a href="index.html" class="to_register"> Connectez vous </a>
-  			</p>
+<<<<<<< HEAD
       </div>
   	</register>
+=======
+                <p class="change_link">
+                  Deja un membre ?
+                  <a href="index.html" class="to_register"> Connectez vous </a>
+                </p>
+    </div>
+>>>>>>> 20b2482f61bb911c5283231f9df3ffc81c58a883
 
-	</main>
+  </main>
 
 </body>
 
