@@ -24,5 +24,14 @@ const Login = Vue.component('login',
                 console.log("A username and password must be present");
             }
         }
-    }
+    }/* ,
+
+    created(){
+      this.$http.get('/list').then((response) => {
+      this.myList = response.data;
+    })
+
+  } */
+
+
 });
