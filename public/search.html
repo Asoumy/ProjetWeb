@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Titre de la page</title>
   <link rel="stylesheet" href="stylesheets/index.css">
-  <script src="javascripts/vue.js"></script>
+  <script src="vue.js"></script>
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 </head>
 <body>
@@ -15,9 +15,8 @@
       <div>
         <label for="character">Enter character </label><br>
         <input type="text" name="character" id="character"  v-model="character"><br>
-        <div id="nav">
-            <button v-on:click="logout()">Logout</button>
-        </div>
+
+        <a href="/logout"> Logout </a>
       </div>
     </search>
 
@@ -26,9 +25,9 @@
 
 </body>
 
-<script src="javascripts/registration.js"></script>
-<script src="javascripts/login.js"></script>
-<script src="javascripts/search.js"></script>
-<script src="../app.js"></script>
+<script src="registration.js"></script>
+<script src="login.js"></script>
+<script src="search.js"></script>
+<script src="app.js"></script>
 
 </html>

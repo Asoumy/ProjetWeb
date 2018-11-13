@@ -14,7 +14,7 @@
   </header>
   <main id="app">
 
-    <div name="reg" id="reg">
+    <form method="post" name="reg" id="reg" onsubmit="/register">
       <img src="images/img_3.jpg" alt="img_3" />
       <h1> Sign up - {{message}} </h1>
       <p>
@@ -34,26 +34,23 @@
               <input id="passwordconf" name="passwordconf" v-model="passwordconf"  type="password" />
   			</p>
               <p class="signup button">
-                <input type="button" v-on:click="register" value="sign up"/>
+                <input type="submit" onsubmit="/register" value="sign up"/>
   			</p>
-<<<<<<< HEAD
-      </div>
+      </form>
   	</register>
-=======
-                <p class="change_link">
-                  Deja un membre ?
-                  <a href="index.html" class="to_register"> Connectez vous </a>
-                </p>
+        <p class="change_link">
+          Deja un membre ?
+          <a href="/" class="to_register"> Connectez vous </a>
+        </p>
     </div>
->>>>>>> 20b2482f61bb911c5283231f9df3ffc81c58a883
 
   </main>
 
 </body>
 
-<script src="javascripts/registration.js"></script>
-<script src="javascripts/login.js"></script>
-<script src="javascripts/search.js"></script>
-<script src="../app.js"></script>
+<script src="registration.js"></script>
+<script src="login.js"></script>
+<script src="search.js"></script>
+<script src="app.js"></script>
 
 </html>

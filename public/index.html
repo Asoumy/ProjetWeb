@@ -16,20 +16,20 @@
 
   <main id="app">
     <login inline-template>
-      <div>
-        <label for="login">Login </label><br>
-        <input type="text" name="login" id="login"  v-model="login"><br>
+      <form method="post">
+        <label for="login">Login {{test}}</label><br>
+        <input type="text" name="login" id="login"  v-model="login" required><br>
 
         <label for="login">Password </label><br>
-        <input type="password" name="password" id="password"  v-model="password"><br>
+        <input type="password" name="password" id="password"  v-model="password" required><br>
 
-        <input type="button" value="Submit" v-on:click="_login()">
-        </div>
+        <input type="Submit"  onsubmit="/">
+      </form>
     </login>
 
     <p class="change_link">
       Pas encore un membre ?
-      <a href="registration.html" class="to_register"> Inscrivez vous </a>
+      <a href="/register" class="to_register"> Inscrivez vous </a>
     </p>
     <p class="change_link">
       <a href="PasswordForgotten.html" class="ResetPassword"> Mot de Passe Oublié ? </a>
@@ -43,9 +43,9 @@
     </ul>
   -->
 </body>
-<script src="javascripts/registration.js"></script>
-<script src="javascripts/login.js"></script>
-<script src="javascripts/search.js"></script>
-<script src="../app.js"></script>
+<script src="registration.js"></script>
+<script src="login.js"></script>
+<script src="search.js"></script>
+<script src="app.js"></script>
 
 </html>

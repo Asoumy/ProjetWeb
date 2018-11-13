@@ -4,19 +4,15 @@ const Login = Vue.component('login',
     data() {
         return {
               login: "",
-              password: ""
+              password: "",
+              test : "test"
         }
     },
     methods: {
         _login(){
-
-            var u = JSON.parse(localStorage.getItem(this.login));
-
-            console.log(u.password + ' ' + u.login);
-            if(this.login != "" && this.password != "" && u != null) {
-                if(this.password == u.password) {
-                    localStorage.setItem('login', this.login);
-                    this.$router.replace({name: "Search"});
+            if(this.login != "" && this.password != "") {
+                if(this.password == "admin") {
+                  window.location.href = "/conne";
                 } else {
                     console.log("The username and / or password is incorrect");
                 }
