@@ -158,8 +158,8 @@ app.post('/addarticle', function(req, res){
     if(!req.session.userID)
       res.redirect('/');
 
-    var article = {url: "/article-" + id, author:req.session.userID, title: req.body.title
-      , imagelink: req.body.imagelink, content: req.body.content};
+    var article = {id: id, url: "/article-" + id, author:req.session.userID, title: req.body.title
+      , imagelink: req.body.imagelink, content: req.body.content, date: currentDate};
 
     var articleFileName = id +  '_' + req.session.userID + '_' + currentDate + '.json';
 
@@ -235,4 +235,49 @@ app.get('/pr-requestedarticle', function(req, res){
 
   res.end();
 
+});
+
+// Searching
+
+app.get('/search', function(req, res){
+  if(!req.session.userID)
+    res.redirect('/');
+
+  res.sendFile(viewsUri + s + "search.html");
+});
+
+app.post('/search', function(req, res){
+  if(!req.session.userID)
+    res.redirect('/');
+
+    var files = fs.readdirSync(__dirname + s + 'files' + s + 'articles');
+    var c = req.body.criteria;
+    var kw = req.body.keyword;
+    var selectedFileIDs = [];
+
+    for(i = 0; i < files.length; i++){
+
+      if(c == "Reference" && files[i].split('_')[0] == kw){
+
+        selectedFileIDs.push(files[i].split('_')[0]);
+      }
+      else if (c == "Author" && files[i].split('_')[1] == kw){
+
+        selectedFileIDs.push(files[i].split('_')[0]);
+      }
+    }
+
+    req.session.selectedFileIDs = selectedFileIDs;
+
+    res.sendFile(viewsUri + s + "results.html");
+});
+
+app.get('/pr-selectedfileids', function(req, res){
+  if(!req.session.userID || !req.session.selectedFileIDs)
+    res.redirect('/');
+
+  var articles = req.session.selectedFileIDs;
+  res.json(JSON.stringify(articles));
+
+  res.end();
 });

@@ -3,7 +3,7 @@ const Search = Vue.component('search',
         name : "Search",
         data() {
             return {
-              character: ""
+              keyword: ""
             }
         },
         methods: {
