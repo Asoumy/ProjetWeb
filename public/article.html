@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
   <meta charset="utf-8">
   <title>Article </title>
@@ -7,6 +8,7 @@
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
 </head>
+
 <body>
   <header>
   </header>
@@ -15,11 +17,14 @@
     <articleview inline-template>
       <div>
         <p> {{article.title}}</p>
-        <image :src="article.imagelink" alt=""/> <br>
+        <image :src="article.imagelink" alt="" /> <br>
         <p> {{article.content}} </p>
       </div>
     </articleview>
-	</main>
+    <p class="change_link">
+      <a href="Acceuil.html" class=""> Retour </a>
+    </p>
+  </main>
 
 
 </body>
