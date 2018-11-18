@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Adding an article</title>
+  <script src="javascripts/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+  <header>
+  </header>
+  <main id="app">
+    <form method="post">
+      <h1> Ajout d'article </h1>
+        <p>
+        <label for="title" class="">Titre de l'article </label>
+        <input id="title" name="title" v-model="" type="text"/>
+  			</p>
+        <p>
+        <label for="imagelink" class="">Lien de l'image </label>
+        <input id="imagelink" name="imagelink" v-model="" type="url"/>
+  			</p>
+        <p>
+          <label for="content" class="" > Saisissez le contenu </label>
+          <textarea id="content" name="content" v-model="" rows="8" cols="80">
+          </textarea>" />
+  			</p>
+        <p>
+                <input type="submit" onsubmit="/addarticle" value="Valider"/>
+  			</p>
+      </form>
+
+	</main>
+
+
+</body>
+
+<script src="addArticle.js"></script>
+<script src="login.js"></script>
+<script src="search.js"></script>
+<script src="app.js"></script>
+
+</html>

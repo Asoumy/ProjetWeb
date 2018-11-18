@@ -1,0 +1,7 @@
+
+- In index.html, addArticle.html, registration.html:
+submit to vue then to server
+
+- Separate url handling from nodeServer.js to different coherent .js files
+
+- cleaning unused code in vuejs views
