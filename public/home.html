@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Home </title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
+</head>
+<body>
+  <header>
+  </header>
+  <main id="app">
+
+    <list-articles inline-template>
+      <div>
+          <p v-for="article in articles" :key="article.id">
+              <a :href="article.url">{{article.title}} - by {{article.author}} </a>
+              <img :src="article.imagelink" alt=""/>
+          </p>
+      </div>
+    </list-articles>
+	</main>
+
+
+</body>
+
+<script src="listArticles.js"></script>
+<script src="registration.js"></script>
+<script src="login.js"></script>
+<script src="search.js"></script>
+<script src="app.js"></script>
+
+</html>

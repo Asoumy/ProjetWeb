@@ -11,7 +11,7 @@ const app = express();
 const viewsUri = __dirname + s + 'public';
 const articlesUri = __dirname + s + "files" + s + "articles";
 const reqfilesUri = __dirname + s + "files" + s + "requested";
-var requestedFile;
+
 // session
 app.use(session({secret: 'ssshhhhh'}));
 app.use(bodyParser.json());
@@ -45,7 +45,7 @@ app.post('/', function(req, res, next){
     if(user.password == req.body.password){
       sess.userID = req.body.login;
       console.log("login est " + sess.userID);
-      res.redirect('/search');
+      res.redirect('/home');
     }
   }
     catch(err){
@@ -61,6 +61,8 @@ app.get('/', function(req, res, next){
      res.redirect('/home');
 
    res.sendFile(viewsUri + s + 'index.html');
+
+
 });
 
 // Search page
@@ -95,7 +97,27 @@ req.session.destroy(function(err) {
 // home
 
 app.get('/home', function(req, res){
+  if(!req.session.userID)
+    res.redirect('/');
 
+  var articles = fs.readdirSync(articlesUri);
+  articles.sort(function(a, b) {
+               return fs.statSync(articlesUri + s + a).mtime.getTime() -
+                      fs.statSync(articlesUri + s + b).mtime.getTime();
+           });
+
+  req.session.listArticles = articles;
+  res.sendFile(viewsUri + s + "home.html");
+});
+
+app.get('/pr-listarticles', function(req, res){
+  if(!req.session.userID)
+    res.redirect('/');
+
+  var articles = req.session.listArticles;
+  res.json(JSON.stringify(articles));
+
+  res.end();
 });
 
 //registration
@@ -131,13 +153,15 @@ app.post('/addarticle', function(req, res){
 
     var today = new Date();
     var currentDate = today.getDate() + '-' + (today.getMonth()+1) + '-' + today.getFullYear();
+    var id = ID();
 
     if(!req.session.userID)
       res.redirect('/');
 
-    var article = {title: req.body.title, imagelink: req.body.imagelink, content: req.body.content};
+    var article = {url: "/article-" + id, author:req.session.userID, title: req.body.title
+      , imagelink: req.body.imagelink, content: req.body.content};
 
-    var articleFileName = ID() +  '_' + req.session.userID + '_' + currentDate + '.json';
+    var articleFileName = id +  '_' + req.session.userID + '_' + currentDate + '.json';
 
     try{
     fs.writeFile(__dirname + s + 'files'+ s +'articles' + s + articleFileName, JSON.stringify(article),
@@ -163,6 +187,7 @@ app.get('/article-:id', function(req, res){
   if(!req.session.userID)
     res.redirect('/');
 
+  var requestedFile;
   var id = req.params.id;
   var files = fs.readdirSync(__dirname + s + 'files' + s + 'articles');
 
@@ -171,15 +196,30 @@ app.get('/article-:id', function(req, res){
     if(files[i].split('_')[0] == id){
 
       requestedFile = articlesUri + s + files[i];
-      console.log(requestedFile);
+      req.session.requestedFile = requestedFile;
 
       res.sendFile(viewsUri + s + 'article.html');
-      /*
-      var myObject, f;
-      myObject = new ActiveXObject("Scripting.FileSystemObject");
-      //f = myObject.file.copy(articlesUri + s + files[i], reqfilesUri + s + "requestedArticle.json");
+      break;
+    }
+  }
+});
 
-      console.log(articlesUri + s + files[i] + " " + reqfilesUri + s + "requestedArticle.json");*/
+app.get('/pr-article-:id', function(req, res){
+  if(!req.session.userID)
+    res.redirect('/');
+
+  var requestedFile;
+  var id = req.params.id;
+  var files = fs.readdirSync(__dirname + s + 'files' + s + 'articles');
+
+  for(i = 0; i < files.length; i++){
+
+    if(files[i].split('_')[0] == id){
+
+      requestedFile = articlesUri + s + files[i];
+      var article = require(requestedFile);
+      res.json(article);
+      res.end();
       break;
     }
   }
@@ -189,17 +229,10 @@ app.get('/pr-requestedarticle', function(req, res){
   if(!req.session.userID)
     res.redirect('/');
 
-  var article = require(requestedFile);
+  var article = require(req.session.requestedFile);
 
   res.json(article);
 
   res.end();
 
 });
-/*
-router.get('/user', function(){
-  if(req.session.userID){
-    res.json(user)
-  }
-})
-*/

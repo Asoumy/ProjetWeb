@@ -27,7 +27,7 @@ var app = new Vue({
             this.$router.replace({name: 'Search'});
         } */
     },
-    components: { Login, Search, Register, ArticleView },
+    components: { Login, Search, Register },
     methods: {
         logout() {
             localStorage.removeItem("login");
