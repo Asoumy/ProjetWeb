@@ -1,8 +1,7 @@
 <!doctype html>
 <html lang="fr">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <!------ Include the above in your HEAD tag ---------->
 <link rel="stylesheet" href="stylesheets/index.css">
 <title>login</title>
@@ -24,9 +23,9 @@
       <input type="text" id="loginsu" class="fadeIn second"  name="loginsu" placeholder="username"  v-model="loginsu" type="text" value="">
       <input type="text" id="emailsu" class="fadeIn third" name="emailsu" placeholder="Email" v-model="emailsu"  type="email">
 
-      <input type="text" id="passwordsu" class="fadeIn third" name="passwordsu" placeholder="password" v-model="passwordsu" type="password" >
+      <input type="password" id="passwordsu" class="fadeIn third" name="passwordsu" placeholder="password" v-model="passwordsu" type="password" >
 
-      <input type="text" id="passwordconf" class="fadeIn third" name="passwordconf" placeholder="Confirmer votre mot de passe" v-model="passwordconf"  type="password" >
+      <input type="password" id="passwordconf" class="fadeIn third" name="passwordconf" placeholder="Confirmer votre mot de passe" v-model="passwordconf"  type="password" >
       <input type="submit" onsubmit="/register" value="Log In" >
     </form>
 

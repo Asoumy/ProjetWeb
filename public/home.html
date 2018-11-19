@@ -1,12 +1,16 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
   <meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home </title>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
 </head>
+
 <body>
   <header>
   </header>
@@ -14,13 +18,13 @@
 
     <list-articles inline-template>
       <div>
-          <p v-for="article in articles" :key="article.id">
-              <a :href="article.url">{{article.title}} - by {{article.author}} </a>
-              <img :src="article.imagelink" alt=""/>
+        <p v-for="article in articles" :key="article.id">
+          <a :href="article.url">{{article.title}} - by {{article.author}} </a>
+          <img :src="article.imagelink" alt=""/>
           </p>
       </div>
     </list-articles>
-	</main>
+  </main>
 
 
 </body>

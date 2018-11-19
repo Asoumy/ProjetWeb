@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
   <meta charset="utf-8">
   <title>Titre de la page</title>
@@ -7,20 +8,21 @@
   <script src="vue.js"></script>
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 </head>
+
 <body>
   <header>
   </header>
   <main id="app">
-    <search  inline-template>
-      <form method="post">
-        <input type="text" name="keyword" id="keyword"  v-model="keyword" required><br>
-        <input type="radio" name="criteria" value="Reference" checked="true"> Reference <br>
-        <input type="radio" name="criteria" value="Author"> Author<br>
-        <input type="submit" onsubmit="/search" value="Rechercher" />
-      </form>
+    <search inline-template>
+      <div>
+        <label for="character">Enter character </label><br>
+        <input type="text" name="character" id="character"  v-model="character"><br>
+
+        <a href="/logout"> Logout </a>
+      </div>
     </search>
 
-	</main>
+  </main>
 
 
 </body>
