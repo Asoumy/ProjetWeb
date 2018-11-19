@@ -6,8 +6,7 @@
 
 
 // var app = module.exports = require('./app');
-module.exports = require('./index');
-var app = module.exports;
+var app = require('../app');
 var debug = require('debug')('ProjetWeb:server');
 var http = require('http');
 

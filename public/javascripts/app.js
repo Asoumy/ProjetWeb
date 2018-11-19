@@ -36,3 +36,5 @@ var app = new Vue({
     }, router
 }
 ).$mount('#app')
+
+module.exports = app;
