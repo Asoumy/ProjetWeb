@@ -6,8 +6,16 @@ const Register = Vue.component('register',
       loginsu : '',
       passwordsu : '',
       emailsu : '',
-      passwordconf :  ''
+      passwordconf :  '',
+      error : null
     }
+  },
+  created(){
+    fetch("/pr-lasterror")
+        .then(r => r.json())
+        .then(json => {
+          this.error =json;
+        });
   },
   methods:{
     register(){

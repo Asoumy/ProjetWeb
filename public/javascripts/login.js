@@ -5,9 +5,19 @@ const Login = Vue.component('login',
         return {
               login: "",
               password: "",
-              test : "test"
+              error : null
         }
     },
+    created(){
+      fetch("/pr-lasterror")
+          .then(r => r.json())
+          .then(json => {
+            this.error =json;
+            //this.$http.get('/pr-lasterrorhandled');
+            fetch("/pr-lasterrorhandled");
+          });
+    }
+    ,
     methods: {
         _login(){
             if(this.login != "" && this.password != "") {

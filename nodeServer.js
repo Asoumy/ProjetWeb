@@ -30,27 +30,29 @@ app.listen(7777);
 // Login page
 app.post('/', function(req, res, next){
    sess = req.session;
-   var c = true;
-   // check form vars
+
    try{
      userFilePath = usersUri + s + req.body.login + '.json';
-     let rawdata = fs.readFile(userFilePath,
-             (err, data) => {
-              if(err) throw err;
-            });
+
+     if (!fs.existsSync(userFilePath)) {
+       req.session.lasterror = JSON.stringify({message:"Mauvais identifiant"});
+       res.redirect('/');
+       return;
+    }
 
     var user = require(userFilePath);
-
-    console.log("pwd " + user.password);
 
     if(user.password == req.body.password){
       sess.userID = req.body.login;
       console.log("login est " + sess.userID);
       res.redirect('/home');
     }
+    else{
+      req.session.lasterror = JSON.stringify({message:"Mot de passe incorrecte"});
+      res.redirect('/');
+    }
   }
     catch(err){
-      console.log("Mauvais identifiant");
       res.redirect('/');
       return;
     }
@@ -64,6 +66,23 @@ app.get('/', function(req, res, next){
    res.sendFile(viewsUri + s + 'index.html');
 
 
+});
+
+app.get('/pr-lasterror', function(req, res){
+  if(!req.session.lasterror)
+    return;
+
+  var error = JSON.parse(req.session.lasterror);
+  req.session.lasterror = null;
+
+  res.json(error);
+
+  res.end();
+});
+
+app.get('/pr-lasterrorhandled', function(req, res){
+  console.log("deleting err");
+  //req.session.lasterror = {};
 });
 
 // Search page
@@ -123,6 +142,8 @@ app.get('/pr-listarticles', function(req, res){
 
 //registration
 app.get('/register', function(req, res){
+  if(req.session.userID)
+    res.redirect('/');
   res.sendFile(__dirname + '/public/registration.html');
 });
 
@@ -133,6 +154,20 @@ app.post('/register', function(req, res){
                 password : req.param('passwordsu')};
 
   // // TODO: Verify if login doesnt exist already
+  userFilePath = usersUri + s + req.body.loginsu + '.json';
+
+  if (fs.existsSync(userFilePath)) {
+    req.session.lasterror = JSON.stringify({message:"Identifiant deja existant"});
+    res.redirect('/register');
+    return;
+  }
+
+  if(req.param('passwordsu') != req.param('passwordconf')){
+    req.session.lasterror = JSON.stringify({message:"Confirmation de mot de passe échouée"});
+    res.redirect('/register');
+    return;
+  }
+
   fs.writeFile(__dirname + s + 'files'+ s +'users' + s + req.param('loginsu') + '.json', JSON.stringify(user), function(err) {
   });
 
@@ -193,7 +228,7 @@ app.get('/article-:id', function(req, res){
   var files = fs.readdirSync(__dirname + s + 'files' + s + 'articles');
 
   for(i = 0; i < files.length; i++){
-    console.log(files[i].split('_')[0]);
+
     if(files[i].split('_')[0] == id){
 
       requestedFile = articlesUri + s + files[i];
