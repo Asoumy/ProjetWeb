@@ -1,55 +1,49 @@
 <!doctype html>
 <html lang="fr">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link rel="stylesheet" href="stylesheets/index.css">
+<title>login</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 
-<head>
-  <meta charset="utf-8">
-  <title>Titre de la page</title>
-  <link rel="stylesheet" href="stylesheets/index.css">
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
-</head>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
 
-<body>
-  <header>
-  </header>
-  <main id="app">
-
-    <form method="post" name="reg" id="reg" onsubmit="/register">
-      <img src="images/img_3.jpg" alt="img_3" />
-      <h1> Sign up - {{message}} </h1>
-      <p>
-        <label for="loginsu" class="uname">Nouveau login </label>
-        <input id="loginsu" name="loginsu" v-model="loginsu" type="text" value=""/>
-  			</p>
-        <p>
-          <label for="emailsu" class="youmail" > Votre mail</label>
-          <input id="emailsu" name="emailsu" v-model="emailsu"  type="email" />
-  			</p>
-          <p>
-            <label for="passwordsu" class="youpasswd"> Votre mot de passe </label>
-            <input id="passwordsu" name="passwordsu" v-model="passwordsu" type="password" />
-  			</p>
-            <p>
-              <label for="passwordconf" class="youpasswd" >Confirmer votre mot de passe </label>
-              <input id="passwordconf" name="passwordconf" v-model="passwordconf"  type="password" />
-  			</p>
-              <p class="signup button">
-                <input type="submit" onsubmit="/register" value="sign up"/>
-  			</p>
-    </form>
-    </register>
-    <p class="change_link">
-      Deja un membre ?
-      <a href="/" class="to_register"> Connectez vous </a>
-    </p>
-    <p class="change_link">
-      <a href="Acceuil.html" class=""> Retour </a>
-    </p>
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="images/logo.png" id="icon" alt="User Icon" />
+      <h1>Tea Factory</h1>
     </div>
 
-  </main>
+    <!-- Login Form -->
+    <form method="post" name="reg" id="reg" onsubmit="/register">
+      <input type="text" id="loginsu" class="fadeIn second"  name="loginsu" placeholder="username"  v-model="loginsu" type="text" value="">
+      <input type="text" id="emailsu" class="fadeIn third" name="emailsu" placeholder="Email" v-model="emailsu"  type="email">
 
-</body>
+      <input type="text" id="passwordsu" class="fadeIn third" name="passwordsu" placeholder="password" v-model="passwordsu" type="password" >
+
+      <input type="text" id="passwordconf" class="fadeIn third" name="passwordconf" placeholder="Confirmer votre mot de passe" v-model="passwordconf"  type="password" >
+      <input type="submit" onsubmit="/register" value="Log In" >
+    </form>
+
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="Acceuil.html">Go to the Site</a>
+        <p class="change_link">
+          <a href="Acceuil.html" class=""> Retour </a>
+        </p>
+        <p class="change_link">
+          Deja un membre ?
+          <a href="registration.html" class="to_register"> Connectez vous </a>
+        </p>
+      </div>
+
+  </div>
+</div>
 
 <script src="registration.js"></script>
 <script src="login.js"></script>

@@ -1,51 +1,47 @@
 <!doctype html>
 <html lang="fr">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link rel="stylesheet" href="stylesheets/index.css">
+<title>login</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 
-<head>
-  <meta charset="utf-8">
-  <title>Titre de la page</title>
-  <link rel="stylesheet" href="stylesheets/index.css">
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
 
-</head>
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="images/logo.png" id="icon" alt="User Icon" />
+      <h1>Tea Factory</h1>
+    </div>
 
-<body>
-  <header>
-  </header>
+    <!-- Login Form -->
+    <form method="post">
+      <input type="text" id="login" class="fadeIn second"  name="login" placeholder="username" v-model="login" required>
+      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" v-model="password" required>
 
-  <main id="app">
-    <login inline-template>
-      <form method="post">
-        <label for="login">Login {{test}}</label><br>
-        <input type="text" name="login" id="login"  v-model="login" required><br>
+      <input type="submit" class="fadeIn fourth" value="Log In" onsubmit="/">
+    </form>
 
-        <label for="login">Password </label><br>
-        <input type="password" name="password" id="password"  v-model="password" required><br>
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="Acceuil.html">Go to the Site</a>
+        <p class="change_link">
+          <a href="Acceuil.html" class=""> Retour </a>
+        </p>
+        <p class="change_link">
+          Pas encore membre ?
+          <a href="registration.html" class="to_register"> Inscrivez vous </a>
+        </p>
+      </div>
 
-        <input type="Submit"  onsubmit="/">
-      </form>
-    </login>
+  </div>
+</div>
 
-    <p class="change_link">
-      Pas encore un membre ?
-      <a href="/register" class="to_register"> Inscrivez vous </a>
-    </p>
-    <p class="change_link">
-      <a href="PasswordForgotten.html" class="ResetPassword"> Mot de Passe Oublié ? </a>
-    </p>
-    <p class="change_link">
-      <a href="Acceuil.html" class=""> Retour </a>
-    </p>
-
-  </main>
-  <!--
-    <ul>
-      <li v-for="item in myList"> {{item.name }} </li>
-      <input type='text'
-    </ul>
-  -->
-</body>
 <script src="registration.js"></script>
 <script src="login.js"></script>
 <script src="search.js"></script>
