@@ -6,34 +6,47 @@
   <title>Adding an article</title>
   <script src="javascripts/vue.js"></script>
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+  <link rel="stylesheet" href="stylesheets/addArticle.css">
 </head>
 
 <body>
   <header>
   </header>
   <main id="app">
-    <form method="post">
-      <h1> Ajout d'article </h1>
-      <p>
-        <label for="title" class="">Titre de l'article </label>
-        <input id="title" name="title" v-model="" type="text"/>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+
+          <form action="" method="post">
+            <button class="btn btn-primary">test</button>
+            <h1> Ajout d'article </h1>
+
+            <div class="form-group">
+              <label for="title">Title <span class="require">*</span></label>
+              <input class="form-control"type="text" id="title" class="form-control" name="title" />
+        </div>
+
+              <div class="image">
+                <label for="imagelink">imagelink <span class="require">*</span> <small></small></label>
+                <input type="text" id="imagelink" class="form-control" name="imagelink"  v-model="" type="url"/>
+                <span class="help-block">Field not entered!</span>
+              </div>
+
+              <div class="form-group">
+                <label for="content">Description</label>
+                <textarea rows="5" class="form-control" name="content" v-model="" rows="8" cols="80"></textarea>
+              </div>
+
+              <p>
+                <input type="submit" onsubmit="/addarticle" value="Valider"/>
   			</p>
-        <p>
-          <label for="imagelink" class="">Lien de l'image </label>
-          <input id="imagelink" name="imagelink" v-model="" type="url"/>
-  			</p>
-          <p>
-            <label for="content" class="" > Saisissez le contenu </label>
-            <textarea id="content" name="content" v-model="" rows="8" cols="80">
-          </textarea>" />
+          </form>
+          <p class="change_link">
+            <a href="Acceuil.html" class=""> Retour </a>
           </p>
-          <p>
-            <input type="submit" onsubmit="/addarticle" value="Valider"/>
-  			</p>
-    </form>
-    <p class="change_link">
-      <a href="Acceuil.html" class=""> Retour </a>
-    </p>
+
 
   </main>
 
@@ -44,5 +57,6 @@
 <script src="login.js"></script>
 <script src="search.js"></script>
 <script src="app.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </html>

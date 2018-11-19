@@ -18,13 +18,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 // static files
-app.use(express.static(__dirname + '/public/javascripts'));
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + s+ 'public' + s + 'javascripts'));
+app.use(express.static(__dirname + s + 'public'));
 app.use(express.static(__dirname + s + 'files' + s + 'users'));
 
 var sess;
 
-app.listen(8080);
+app.listen(7777);
 
 // Login page
 app.post('/', function(req, res, next){
@@ -107,7 +107,7 @@ app.get('/home', function(req, res){
            });
 
   req.session.listArticles = articles;
-  res.sendFile(viewsUri + s + "home.html");
+  res.sendFile(viewsUri + s + "acceuil.html");
 });
 
 app.get('/pr-listarticles', function(req, res){
