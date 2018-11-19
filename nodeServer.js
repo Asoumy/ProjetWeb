@@ -22,6 +22,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + s+ 'public' + s + 'javascripts'));
 app.use(express.static(__dirname + s + 'public'));
 app.use(express.static(__dirname + s + 'files' + s + 'users'));
+app.use(express.static(__dirname));
 
 var sess;
 
