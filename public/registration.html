@@ -8,6 +8,8 @@
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 
+<main id="app">
+<register inline-template>
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <!-- Tabs Titles -->
@@ -27,8 +29,9 @@
 
       <input type="password" id="passwordconf" class="fadeIn third" name="passwordconf" placeholder="Confirmer votre mot de passe" v-model="passwordconf"  type="password" >
       <input type="submit" onsubmit="/register" value="Log In" >
-    </form>
 
+    </form>
+      <p v-if="error != null">{{error.message}}</p>
       <!-- Remind Passowrd -->
       <div id="formFooter">
         <a class="underlineHover" href="Acceuil.html">Go to the Site</a>
@@ -43,6 +46,8 @@
 
   </div>
 </div>
+</register>
+</main>
 
 <script src="registration.js"></script>
 <script src="login.js"></script>

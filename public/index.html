@@ -9,14 +9,17 @@
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 
+<main id="app">
+<login inline-template>
 <div class="wrapper fadeInDown">
+
   <div id="formContent">
     <!-- Tabs Titles -->
 
     <!-- Icon -->
     <div class="fadeIn first">
       <img src="images/logo.png" id="icon" alt="User Icon" />
-      <h1>Tea Factory</h1>
+      <h1>Tea Factory </h1>
     </div>
 
     <!-- Login Form -->
@@ -27,6 +30,7 @@
       <input type="submit" class="fadeIn fourth" value="Log In" onsubmit="/">
     </form>
 
+    <p v-if="error != null">{{error.message}}</p>
       <!-- Remind Passowrd -->
       <div id="formFooter">
         <a class="underlineHover" href="Acceuil.html">Go to the Site</a>
@@ -41,6 +45,8 @@
 
   </div>
 </div>
+</login>
+</main>
 
 <script src="registration.js"></script>
 <script src="login.js"></script>
