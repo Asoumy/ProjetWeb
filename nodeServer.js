@@ -61,7 +61,7 @@ app.get('/', function(req, res, next){
    if(req.session.userID)
      res.redirect('/home');
 
-   res.sendFile(viewsUri + s + 'index.html');
+   res.sendFile(viewsUri + s + 'Acceuil.html');
 
 
 });

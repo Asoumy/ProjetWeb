@@ -26,17 +26,8 @@
       </div>
 
       <ul class="list-unstyled components">
-        <li class="active">
-          <a href="home.html" aria-expanded="false">Home</a>
-        </li>
         <li>
           <a href="#">About Us</a>
-          <a href="#pageSubmenu" aria-expanded="false">Pages</a>
-          <!-- <ul class="collapse list-unstyled" id="pageSubmenu"> -->
-          <!-- <li><a href="#">Page 1</a></li>
-            <li><a href="#">Page 2</a></li>
-            <li><a href="#">Page 3</a></li> -->
-          <!-- </ul> -->
         </li>
         <li>
           <a href="#">Contacts</a>
@@ -45,7 +36,7 @@
 
       <ul class="list-unstyled CTAs">
         <li><a href="registration.html" class="to_register">Sign UP</a></li>
-        <li><a href="index.html" class="signon">Sign ON</a></li>
+        <li><a href="/logout" class="to_register">Log out</a></li>
       </ul>
     </nav>
 
@@ -66,8 +57,8 @@
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="addArticle.html" class="">Add an Article</a></li>
-              <li><a href="article.html" class="">View Articles</a></li>
+              <li><a href="/addarticle" class="">Add an Article</a></li>
+              <li><a href="/search" class="">Search</a></li>
             </ul>
           </div>
         </div>
@@ -76,13 +67,13 @@
 
         <list-articles inline-template>
           <div>
-              <p v-for="article in articles" :key="article.id">
-                  <a :href="article.url">{{article.title}} - by {{article.author}} </a>
-                  <img :src="article.imagelink" alt=""/>
-              </p>
+            <p v-for="article in articles" :key="article.id">
+              <img :src="article.imagelink" alt="visuel dynamique 1"  style="width: 300px;"/>
+              <a :href="article.url">{{article.title}} - by {{article.author}} </a>
+            </p>
           </div>
         </list-articles>
-    	</main>
+      </main>
     </div>
   </div>
 
@@ -98,11 +89,11 @@
       });
     });
   </script>
-</body>
-<script src="listArticles.js"></script>
-<script src="registration.js"></script>
-<script src="login.js"></script>
-<script src="search.js"></script>
-<script src="app.js"></script>
+  </body>
+  <script src="listArticles.js"></script>
+  <script src="registration.js"></script>
+  <script src="login.js"></script>
+  <script src="search.js"></script>
+  <script src="app.js"></script>
 
 </html>

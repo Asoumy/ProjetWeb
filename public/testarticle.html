@@ -65,22 +65,14 @@
           </div>
         </div>
       </nav>
-      <main id="app">
+      <search inline-template>
+        <div>
+          <label for="character">Enter character </label><br>
+          <input type="text" name="character" id="character"  v-model="character"><br>
 
-        <results inline-template>
-          <div>
-            <div v-if="articles.length > 0">
-              <p v-for="article in articles" :key="article.id">
-                <a :href="article.url">{{article.title}} - by {{article.author}} </a>
-                <img :src="article.imagelink" alt=""/>
-              </p>
-            </div>
-            <div v-else>
-              <h2> aucun article ne correspond a votre critere </h2>
-            </div>
-          </div>
-        </results>
-      </main>
+          <a href="/logout"> Logout </a>
+        </div>
+      </search>
     </div>
   </div>
   <!-- Bootstrap Js CDN -->
@@ -95,7 +87,7 @@
   </script>
 
 
-  <script src="results.js"></script>
+  <script src="article.js"></script>
   <script src="registration.js"></script>
   <script src="login.js"></script>
   <script src="search.js"></script>
