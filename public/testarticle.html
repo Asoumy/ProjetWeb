@@ -1,96 +1,18 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-  <title>Article</title>
-
-  <!-- Bootstrap CSS CDN -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <!-- Our Custom CSS -->
-  <link rel="stylesheet" href="stylesheets/acceuil.css">
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
-</head>
-
 <main id="app">
-  <div class="wrapper">
-    <!-- Sidebar Holder -->
-    <nav id="sidebar">
-      <div class="sidebar-header">
-        <h3>Tea Factory</h3>
+
+  <results inline-template>
+
+    <div>
+
+      <div v-if="articles.length > 0">
+        <p v-for="article in articles" :key="article.id">
+          <a :href="article.url">{{article.title}} - by {{article.author}} </a>
+          <img :src="article.imagelink" alt=""/>
+        </p>
       </div>
-
-      <ul class="list-unstyled components">
-        <li class="active">
-          <a href="Acceuil.html" aria-expanded="false">Home</a>
-        </li>
-        <li>
-          <a href="#">About Us</a>
-        </li>
-        <li>
-          <a href="#">Contacts</a>
-        </li>
-      </ul>
-
-      <ul class="list-unstyled CTAs">
-        <li><a href="/logout" class="to_register">Log out</a></li>
-
-      </ul>
-    </nav>
-
-    <!-- Page Content Holder -->
-    <div id="content">
-
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-
-          <div class="navbar-header">
-            <img src="images/logo.png" alt="logo" style="width: 80px;" />
-            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-                                <i class="glyphicon glyphicon-align-left"></i>
-                                <span>Menu</span>
-                            </button>
-          </div>
-
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="addArticle.html" class="">Add an Article</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <search inline-template>
-        <div>
-          <label for="character">Enter character </label><br>
-          <input type="text" name="character" id="character"  v-model="character"><br>
-
-          <a href="/logout"> Logout </a>
-        </div>
-      </search>
+      <div v-else>
+        <h2> aucun article ne correspond a votre critere </h2>
+      </div>
     </div>
-  </div>
-  <!-- Bootstrap Js CDN -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('#sidebarCollapse').on('click', function() {
-        $('#sidebar').toggleClass('active');
-      });
-    });
-  </script>
-
-
-  <script src="article.js"></script>
-  <script src="registration.js"></script>
-  <script src="login.js"></script>
-  <script src="search.js"></script>
-  <script src="app.js"></script>s
-
-</html>
+  </results>
+</main>
