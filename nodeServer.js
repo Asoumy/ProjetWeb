@@ -70,9 +70,6 @@ app.get('/', function(req, res, next){
 });
 
 app.get('/pr-lasterror', function(req, res){
-  if(!req.session.lasterror)
-    return;
-
   var error = JSON.parse(req.session.lasterror);
   req.session.lasterror = null;
 
@@ -118,9 +115,6 @@ req.session.destroy(function(err) {
 // home
 
 app.get('/home', function(req, res){
-  if(!req.session.userID)
-    res.redirect('/');
-
   var articles = fs.readdirSync(articlesUri);
   articles.sort(function(a, b) {
                return fs.statSync(articlesUri + s + a).mtime.getTime() -
@@ -132,9 +126,6 @@ app.get('/home', function(req, res){
 });
 
 app.get('/pr-listarticles', function(req, res){
-  if(!req.session.userID)
-    res.redirect('/');
-
   var articles = req.session.listArticles;
   res.json(JSON.stringify(articles));
 
@@ -221,9 +212,6 @@ var ID = function () {
 };
 
 app.get('/article-:id', function(req, res){
-  if(!req.session.userID)
-    res.redirect('/');
-
   var requestedFile;
   var id = req.params.id;
   var files = fs.readdirSync(__dirname + s + 'files' + s + 'articles');
@@ -242,9 +230,6 @@ app.get('/article-:id', function(req, res){
 });
 
 app.get('/pr-article-:id', function(req, res){
-  if(!req.session.userID)
-    res.redirect('/');
-
   var requestedFile;
   var id = req.params.id;
   var files = fs.readdirSync(__dirname + s + 'files' + s + 'articles');
@@ -263,9 +248,6 @@ app.get('/pr-article-:id', function(req, res){
 });
 
 app.get('/pr-requestedarticle', function(req, res){
-  if(!req.session.userID)
-    res.redirect('/');
-
   var article = require(req.session.requestedFile);
 
   res.json(article);
@@ -277,15 +259,10 @@ app.get('/pr-requestedarticle', function(req, res){
 // Searching
 
 app.get('/search', function(req, res){
-  if(!req.session.userID)
-    res.redirect('/');
-
   res.sendFile(viewsUri + s + "search.html");
 });
 
 app.post('/search', function(req, res){
-  if(!req.session.userID)
-    res.redirect('/');
 
     var files = fs.readdirSync(__dirname + s + 'files' + s + 'articles');
     var c = req.body.criteria;
@@ -310,11 +287,16 @@ app.post('/search', function(req, res){
 });
 
 app.get('/pr-selectedfileids', function(req, res){
-  if(!req.session.userID || !req.session.selectedFileIDs)
-    res.redirect('/');
-
   var articles = req.session.selectedFileIDs;
   res.json(JSON.stringify(articles));
 
+  res.end();
+});
+
+app.get('/pr-user', function(req, res){
+  if(!req.session.userID)
+    return;
+  var article = require(usersUri + s + req.session.userID + '.json');
+  res.json(article);
   res.end();
 });

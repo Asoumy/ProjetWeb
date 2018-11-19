@@ -35,8 +35,9 @@
       </ul>
 
       <ul class="list-unstyled CTAs">
-        <li><a href="registration.html" class="to_register">Sign UP</a></li>
-        <li><a href="/logout" class="to_register">Log out</a></li>
+        <li><a v-if="user" href="/logout" class="to_register">Log out</a></li>
+        <li><a v-if="!user" href="/register" class="to_register">Sign UP</a></li>
+
       </ul>
     </nav>
 

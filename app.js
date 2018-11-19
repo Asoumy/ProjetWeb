@@ -15,6 +15,7 @@ var app = new Vue({
     el: "#app",
     data() {
         return {
+          user: null
         }
     },
     mounted() { /*
@@ -27,6 +28,14 @@ var app = new Vue({
             this.$router.replace({name: 'Search'});
         } */
     },
+    created(){
+      fetch("/pr-user")
+          .then(r => r.json())
+          .then(json => {
+            this.user=json;
+          });
+    }
+    ,
     components: { Login, Search, Register },
     methods: {
         logout() {
