@@ -11,6 +11,7 @@ const app = express();
 const viewsUri = __dirname + s + 'public';
 const articlesUri = __dirname + s + "files" + s + "articles";
 const reqfilesUri = __dirname + s + "files" + s + "requested";
+const usersUri = __dirname + s + "files"+ s + "users";
 
 // session
 app.use(session({secret: 'ssshhhhh'}));
@@ -32,7 +33,7 @@ app.post('/', function(req, res, next){
    var c = true;
    // check form vars
    try{
-     userFilePath = __dirname + s + "files"+ s + "users" + s + req.body.login + '.json';
+     userFilePath = usersUri + s + req.body.login + '.json';
      let rawdata = fs.readFile(userFilePath,
              (err, data) => {
               if(err) throw err;
@@ -107,7 +108,7 @@ app.get('/home', function(req, res){
            });
 
   req.session.listArticles = articles;
-  res.sendFile(viewsUri + s + "home.html");
+  res.sendFile(viewsUri + s + "Acceuil.html");
 });
 
 app.get('/pr-listarticles', function(req, res){
