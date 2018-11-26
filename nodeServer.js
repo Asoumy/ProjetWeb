@@ -26,7 +26,7 @@ app.use(express.static(__dirname));
 
 var sess;
 
-app.listen(7777);
+app.listen(process.env.PORT || 7777);
 
 // Login page
 app.post('/', function(req, res, next){
