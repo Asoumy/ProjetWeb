@@ -10,42 +10,42 @@
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 
 <main id="app">
-<login inline-template>
-<div class="wrapper fadeInDown">
+  <login inline-template>
+    <div class="wrapper fadeInDown">
 
-  <div id="formContent">
-    <!-- Tabs Titles -->
+      <div id="formContent">
+        <!-- Tabs Titles -->
 
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="images/logo.png" id="icon" alt="User Icon" />
-      <h1>Tea Factory </h1>
-    </div>
+        <!-- Icon -->
+        <div class="fadeIn first">
+          <img src="images/logo.png" id="icon" alt="User Icon" />
+          <h1>Tea Factory </h1>
+        </div>
 
-    <!-- Login Form -->
-    <form method="post">
-      <input type="text" id="login" class="fadeIn second"  name="login" placeholder="username" v-model="login" required>
-      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" v-model="password" required>
+        <!-- Login Form -->
+        <form method="post">
+          <input type="text" id="login" class="fadeIn second"  name="login" placeholder="username" v-model="login" required>
+          <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" v-model="password" required>
 
-      <input type="submit" class="fadeIn fourth" value="Log In" onsubmit="/">
+          <input type="submit" class="fadeIn fourth" value="Log In" onsubmit="/">
     </form>
 
-    <p v-if="error != null">{{error.message}}</p>
-      <!-- Remind Passowrd -->
-      <div id="formFooter">
-        <a class="underlineHover" href="Acceuil.html">Go to the Site</a>
-        <p class="change_link">
-          <a href="Acceuil.html" class=""> Retour </a>
-        </p>
-        <p class="change_link">
-          Pas encore membre ?
-          <a href="registration.html" class="to_register"> Inscrivez vous </a>
-        </p>
-      </div>
+          <p v-if="error != null">{{error.message}}</p>
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+            <a class="underlineHover" href="Acceuil.html">Go to the Site</a>
+            <p class="change_link">
+              <a href="Acceuil.html" class=""> Retour </a>
+            </p>
+            <p class="change_link">
+              Pas encore membre ?
+              <a href="/register" class="to_register"> Inscrivez vous </a>
+            </p>
+          </div>
 
-  </div>
-</div>
-</login>
+      </div>
+    </div>
+  </login>
 </main>
 
 <script src="registration.js"></script>

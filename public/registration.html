@@ -9,44 +9,44 @@
 <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 
 <main id="app">
-<register inline-template>
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Tabs Titles -->
+  <register inline-template>
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+        <!-- Tabs Titles -->
 
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="images/logo.png" id="icon" alt="User Icon" />
-      <h1>Tea Factory</h1>
-    </div>
+        <!-- Icon -->
+        <div class="fadeIn first">
+          <img src="images/logo.png" id="icon" alt="User Icon" />
+          <h1>Tea Factory</h1>
+        </div>
 
-    <!-- Login Form -->
-    <form method="post" name="reg" id="reg" onsubmit="/register">
-      <input type="text" id="loginsu" class="fadeIn second"  name="loginsu" placeholder="username"  v-model="loginsu" type="text" value="">
-      <input type="text" id="emailsu" class="fadeIn third" name="emailsu" placeholder="Email" v-model="emailsu"  type="email">
+        <!-- Login Form -->
+        <form method="post" name="reg" id="reg" onsubmit="/register">
+          <input type="text" id="loginsu" class="fadeIn second"  name="loginsu" placeholder="username"  v-model="loginsu" type="text" value="">
+          <input type="text" id="emailsu" class="fadeIn third" name="emailsu" placeholder="Email" v-model="emailsu"  type="email">
 
-      <input type="password" id="passwordsu" class="fadeIn third" name="passwordsu" placeholder="password" v-model="passwordsu" type="password" >
+          <input type="password" id="passwordsu" class="fadeIn third" name="passwordsu" placeholder="password" v-model="passwordsu" type="password" >
 
-      <input type="password" id="passwordconf" class="fadeIn third" name="passwordconf" placeholder="Confirmer votre mot de passe" v-model="passwordconf"  type="password" >
-      <input type="submit" onsubmit="/register" value="Log In" >
+          <input type="password" id="passwordconf" class="fadeIn third" name="passwordconf" placeholder="Confirmer votre mot de passe" v-model="passwordconf"  type="password" >
+          <input type="submit" onsubmit="/register" value="Sign up" >
 
     </form>
-      <p v-if="error != null">{{error.message}}</p>
-      <!-- Remind Passowrd -->
-      <div id="formFooter">
-        <a class="underlineHover" href="Acceuil.html">Go to the Site</a>
-        <p class="change_link">
-          <a href="Acceuil.html" class=""> Retour </a>
-        </p>
-        <p class="change_link">
-          Deja un membre ?
-          <a href="registration.html" class="to_register"> Connectez vous </a>
-        </p>
-      </div>
+          <p v-if="error != null">{{error.message}}</p>
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+            <a class="underlineHover" href="Acceuil.html">Go to the Site</a>
+            <p class="change_link">
+              <a href="Acceuil.html" class=""> Retour </a>
+            </p>
+            <p class="change_link">
+              Deja un membre ?
+              <a href="/" class="to_register"> Connectez vous </a>
+            </p>
+          </div>
 
-  </div>
-</div>
-</register>
+      </div>
+    </div>
+  </register>
 </main>
 
 <script src="registration.js"></script>
